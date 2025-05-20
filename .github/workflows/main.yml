@@ -3,7 +3,8 @@ name: Preprocessing
 on:
   push:
     paths:
-      - main
+      - 'house-price-india_raw.csv'
+      - 'preprocessing/automate_Muhammad-Raihan-Fauzi.py'
   workflow_dispatch:
 
 jobs:
