@@ -6,8 +6,7 @@ permissions:
 on:
   push:
     paths:
-      - 'house-price-india_raw.csv'
-      - 'preprocessing/automate_Muhammad-Raihan-Fauzi.py'
+      - main
   workflow_dispatch:
 
 jobs:
