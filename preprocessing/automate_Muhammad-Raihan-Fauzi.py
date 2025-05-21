@@ -28,11 +28,17 @@ def preprocess(input_path: str, output_path: str):
     )
     print(f"Train shape: {X_train.shape}, Test shape: {X_test.shape}")
 
-    # Simpan preprocessed data (full clean)
-    df.to_csv(output_path, index=False)
+    # Tandai split dalam satu kolom
+    df_clean = df.copy()
+    df_clean['split'] = None
+    df_clean.loc[X_train.index, 'split'] = 'train'
+    df_clean.loc[X_test.index,  'split'] = 'test'
+
+    # Simpan preprocessed + split
+    df_clean.to_csv(output_path, index=False)
     print(f"Processed data saved to {output_path}")
 
-    return X_train, X_test, y_train, y_test
+    return df_clean
 
 if __name__ == '__main__':
     base = os.path.dirname(__file__)
